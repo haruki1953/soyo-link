@@ -3,10 +3,10 @@ export const axiosConfig = {
   timeout: 10000
 }
 
-export const webName = '小祥の工具箱'
+export const webName = 'soyo链接生成器'
 
 // logo图标
-import logoImage from '@/assets/logo.png'
+import logoImage from '@/assets/soyo.png'
 export { logoImage }
 
 interface LinkInfo {
@@ -36,8 +36,8 @@ export const contactInfo: LinkInfo = {
   github: {
     name: 'Github',
     fontawesomeClass: 'fa-brands fa-github',
-    description: 'haruki1953',
-    link: 'https://github.com/haruki1953'
+    description: 'haruki1953/soyo-link',
+    link: 'https://github.com/haruki1953/soyo-link'
   }
 }
 

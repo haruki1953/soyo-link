@@ -43,51 +43,14 @@ useDialogOptimization({
       :modal-class="overlayClass"
     >
       <div class="markdown-content">
-        <h2>关于【小祥の小窝】🎉</h2>
-        <p>是一个基于onedrive的番剧小窝</p>
+        <h2>关于【soyo链接生成器】🎉</h2>
+        <p>将任意链接生成为如：soyo.mom/sosoyoyosoyosoyo…… 这样的链接</p>
         <!-- <h2>注意事项🦽</h2> -->
         <ul>
           <li>
-            <strong>关于下载</strong>
+            <strong>实现方式</strong>
             <p>
-              建议下载观看，右键点击或长按文件下载，暂不支持文件夹与多个文件下载
-            </p>
-            <p>
-              下载时请尽量使用<code>IDM</code>等多线程下载软件
-              <a href="https://bangumi.sakiko.top/Soft/IDM/" target="_blank">
-                IDM
-              </a>
-              |
-              <a href="https://bangumi.sakiko.top/Soft/FDM/" target="_blank">
-                FDM
-              </a>
-            </p>
-            <p>
-              下载超时时可以在<code>IDM</code>右键下载文件刷新下载地址，然后重新回到本站右键点击对应文件下载
-            </p>
-          </li>
-          <li>
-            <strong>关于新番更新</strong>
-            <p>一般在当天半夜更新，建议次日早上看</p>
-            <p>部分新番因巴哈姆特没有，字幕组更新会较晚</p>
-          </li>
-          <li>
-            <strong>如果想看的番剧小窝里没有</strong>
-            <p>
-              因为服务器每月流量有限，所以并没有订阅一些冷门新番和大部分老番。
-            </p>
-            <p>
-              如果想看可以
-              <a href="javascript:;">联系我📧</a>，或在
-              <a href="https://pan.cycg.xyz/" target="_blank"> 次元图书馆 </a> |
-              <a
-                href="https://pan.timero.xyz/onedrive/vcr_lib_001"
-                target="_blank"
-              >
-                ximu's pan
-              </a>
-              找找看， 也可以在
-              <a href="https://mikanani.me/" target="_blank"> 蜜柑计划 </a> 下载
+              没有后端，由前端来编码、解析、跳转。生成的链接一般会比较长，原始链接尽量保持在250个字符以内
             </p>
           </li>
         </ul>

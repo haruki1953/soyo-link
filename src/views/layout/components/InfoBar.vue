@@ -66,6 +66,7 @@ const showMenuBoxToggle = () => {
 }
 .switch-dark {
   --el-switch-off-color: var(--el-color-primary);
+  --el-switch-on-color: var(--el-color-primary);
   :deep() {
     .el-switch__action {
       background-color: var(--color-background);
