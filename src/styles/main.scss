@@ -1,0 +1,67 @@
+@use './base.css';
+@use './transition.scss';
+
+@function color-lighten($color, $step) {
+  @return mix(white, $color, $step * 10%);
+}
+
+@function color-darken($color, $step) {
+  @return mix(black, $color, $step * 10%);
+}
+
+$types: (
+  primary: #7899CC,
+  success: #799978,
+  // info: #345566,
+  info: #5a7583,
+  warning: #BB9854,
+  danger: #AB4378,
+  error: #AB4378
+);
+
+// $light-steps: 3, 5, 7, 8, 9;
+// $dark-steps: 2;
+
+$light-steps: 1, 2, 3, 4, 5, 6, 7, 8, 9;
+$dark-steps: 1, 2, 3, 4, 5, 6, 7, 8, 9;
+
+:root:root {
+  @each $type, $color in $types {
+    --el-color-#{$type}: #{$color};
+
+    @each $step in $light-steps {
+      --el-color-#{$type}-light-#{$step}: #{color-lighten($color, $step)};
+    }
+
+    @each $step in $dark-steps {
+      --el-color-#{$type}-dark-#{$step}: #{color-darken($color, $step)};
+    }
+  }
+}
+
+:root:root.dark {
+  @each $type, $color in $types {
+    --el-color-#{$type}: #{$color};
+
+    @each $step in $light-steps {
+      --el-color-#{$type}-light-#{$step}: #{color-darken($color, $step)};
+    }
+
+    @each $step in $dark-steps {
+      --el-color-#{$type}-dark-#{$step}: #{color-lighten($color, $step)};
+    }
+  }
+}
+
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.el-dialog.el-dialog {
+  border-radius: 20px;
+}
+
+.el-message.el-message {
+  border-radius: 20px;
+}
