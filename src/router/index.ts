@@ -1,11 +1,13 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import LayoutContainer from '@/views/layout/LayoutContainer.vue'
 import HomePage from '@/views/home/HomePage.vue'
+import JumpPage from '@/views/jump/JumpPage.vue'
 import { webName } from '@/config'
 import { ref } from 'vue'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  // history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -16,6 +18,12 @@ const router = createRouter({
           name: 'home',
           component: HomePage,
           meta: { title: `` }
+        },
+        {
+          path: '/:soyoStr',
+          name: 'jump',
+          component: JumpPage,
+          meta: { title: `链接跳转` }
         }
       ]
     }

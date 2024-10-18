@@ -1,11 +1,67 @@
 <script setup lang="ts">
 import { logoImage } from '@/config'
 import { webName } from '@/config'
+import {
+  binaryStringToString,
+  soyoDecodeLink,
+  soyoEncodeLink,
+  soyoStrMergeBaseUrl
+} from '@/services'
 import { Link, Connection } from '@element-plus/icons-vue'
+import { useClipboard } from '@vueuse/core'
+import { computed } from 'vue'
 import { ref } from 'vue'
 
 const originalLink = ref('')
-const generateLink = ref('')
+const generatedLink = ref('')
+
+// 编码
+const encodeLink = () => {
+  const soyoStr = soyoEncodeLink(originalLink.value)
+  generatedLink.value = soyoStrMergeBaseUrl(soyoStr)
+  // console.log(soyoDecodeLink(soyoStr))
+}
+
+const originalLinkChange = () => {
+  if (originalLink.value) {
+    try {
+      encodeLink()
+      ElMessage.success('生成成功')
+    } catch (error) {
+      ElMessage.error('生成失败')
+      console.log(error)
+    }
+  } else {
+    generatedLink.value = ''
+  }
+}
+
+const clipboard = useClipboard({ source: generatedLink })
+const isSupported = clipboard.isSupported
+// const isSupported = ref(false)
+const isCopied = computed(() => {
+  return clipboard.text.value === generatedLink.value
+})
+const copyLink = async () => {
+  if (!generatedLink.value) {
+    return
+  }
+  if (!isSupported.value) {
+    return
+  }
+  await clipboard.copy(generatedLink.value)
+  ElNotification({
+    type: 'success',
+    title: '复制成功',
+    message: (() => {
+      if (clipboard.text.value.length > 2000) {
+        return `链接长度 ${clipboard.text.value.length}，老旧浏览器可能不支持`
+      } else {
+        return `链接长度 ${clipboard.text.value.length}，全部浏览器支持`
+      }
+    })()
+  })
+}
 </script>
 <template>
   <div class="home-page">
@@ -24,19 +80,39 @@ const generateLink = ref('')
           placeholder="链接输入 https://......"
           size="large"
           clearable
+          @change="originalLinkChange"
         ></el-input>
       </div>
-      <div class="generate-link link-input">
+      <div
+        class="generate-link link-input"
+        :class="{
+          'is-generated': generatedLink,
+          'is-copied': isCopied,
+          'is-supported': isSupported
+        }"
+        @click="copyLink"
+      >
         <el-input
-          v-model="generateLink"
+          v-model="generatedLink"
           :prefix-icon="Connection"
           placeholder="链接生成 https://soyo.mom/sosoyoyosoyosoyo......"
           size="large"
           readonly
         ></el-input>
       </div>
-      <div class="click-copy">
-        <span class="blinking-2s">【点击复制】</span>
+      <div
+        class="click-copy"
+        :class="{
+          'is-generated': generatedLink,
+          'is-copied': isCopied,
+          'is-supported': isSupported
+        }"
+        @click="copyLink"
+      >
+        <span class="blinking-2s" v-if="clipboard.isSupported">
+          【点击复制】
+        </span>
+        <span class="blinking-2s" v-else> 【请手动复制】 </span>
       </div>
     </div>
   </div>
@@ -78,6 +154,15 @@ const generateLink = ref('')
   line-height: 40px;
   letter-spacing: 4px;
   transition: color 0.2s;
+  user-select: none;
+  /* 设置被选中文本的背景色和文本颜色 */
+  // &::selection {
+  //   background-color: var(--el-color-primary); /* 背景色 */
+  //   color: var(--color-background); /* 文本颜色 */
+  // }
+  white-space: nowrap; /* 禁止换行 */
+  overflow: hidden; /* 隐藏超出部分 */
+  text-overflow: ellipsis; /* 显示省略号 */
 }
 .link-input {
   margin: 0 auto;
@@ -107,18 +192,21 @@ const generateLink = ref('')
 }
 
 .generate-link {
-  cursor: pointer;
-  :deep() {
-    .el-input__wrapper {
-      cursor: pointer;
-    }
-    .el-input__inner {
-      cursor: pointer;
+  &.is-supported.is-generated {
+    cursor: pointer;
+    :deep() {
+      .el-input__wrapper {
+        cursor: pointer;
+      }
+      .el-input__inner {
+        cursor: pointer;
+      }
     }
   }
 }
 
 .click-copy {
+  visibility: hidden;
   margin: 0 auto;
   max-width: 400px;
   height: 50px;
@@ -127,5 +215,11 @@ const generateLink = ref('')
   justify-content: center;
   cursor: pointer;
   user-select: none;
+  &.is-supported.is-generated {
+    visibility: visible;
+  }
+  &.is-copied.is-copied {
+    visibility: hidden;
+  }
 }
 </style>

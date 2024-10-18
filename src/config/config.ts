@@ -3,7 +3,17 @@ export const axiosConfig = {
   timeout: 10000
 }
 
-export const webName = 'soyo链接生成器'
+export const webName = 'soyo-link'
+
+export const soyoLinkConfig = {
+  // baseUrl: 'https://soyo.mom/',
+  baseUrl: 'http://localhost:5173/',
+  zero: 'so',
+  one: 'yo',
+  linkVersion: 0,
+  version01Length: 8,
+  versionStrLength: 16
+}
 
 // logo图标
 import logoImage from '@/assets/soyo.png'

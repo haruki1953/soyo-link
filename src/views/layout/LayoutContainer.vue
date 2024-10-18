@@ -10,7 +10,12 @@ onMounted(async () => {
 <template>
   <div class="layout-container">
     <div class="container-box">
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
+      <router-view v-slot="{ Component }">
+        <transition name="fade-up" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
     <div class="footer-box">
       <InfoBar></InfoBar>

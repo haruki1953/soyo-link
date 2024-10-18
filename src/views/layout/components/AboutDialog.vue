@@ -20,7 +20,7 @@ defineExpose({
 
 const windowSize = useWindowSize()
 const dialogWidth = computed(() => {
-  const width = 920
+  const width = 820
   const windowWidth = windowSize.width.value
   return windowWidth * 0.9 < width ? '90%' : width
 })
@@ -43,14 +43,33 @@ useDialogOptimization({
       :modal-class="overlayClass"
     >
       <div class="markdown-content">
-        <h2>关于【soyo链接生成器】🎉</h2>
-        <p>将任意链接生成为如：soyo.mom/sosoyoyosoyosoyo…… 这样的链接</p>
+        <h2>关于【soyo-link】🎉</h2>
+        <p>
+          soyo！soyorin！soyolink！
+          soyo链接生成器，将任意链接生成为：soyo.mom/sosoyoyosoyosoyo……
+        </p>
         <!-- <h2>注意事项🦽</h2> -->
         <ul>
           <li>
             <strong>实现方式</strong>
             <p>
-              没有后端，由前端来编码、解析、跳转。生成的链接一般会比较长，原始链接尽量保持在250个字符以内
+              由前端来编码、解析、跳转，没有后端。这也导致生成的链接会很长，请尽量保持原始链接较短
+            </p>
+          </li>
+          <li>
+            <strong>编码过程</strong>
+            <p><strong>1.</strong> 将字符串转为二进制数据</p>
+            <p>
+              <strong>2.</strong>
+              用合适的算法压缩二进制数据（暂未实现，谁能教教我）
+            </p>
+            <p>
+              <strong>3.</strong> 将二进制数据转为01字符串，再替换为自定义字符
+              “so” 与 “yo”
+            </p>
+            <p>
+              <strong>4.</strong>
+              链接路径中，前8位（16个字符）代表当前编码版本，解析时会据此采用相应的编码方式。此后改进编码算法后，不会影响到之前生成的链接
             </p>
           </li>
         </ul>
