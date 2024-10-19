@@ -36,7 +36,7 @@ const originalLinkChange = () => {
   }
 }
 
-const clipboard = useClipboard({ source: generatedLink })
+const clipboard = useClipboard({ source: generatedLink, legacy: true })
 const isSupported = clipboard.isSupported
 // const isSupported = ref(false)
 const isCopied = computed(() => {

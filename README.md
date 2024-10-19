@@ -1,6 +1,21 @@
-# sakiko-utils-vue3
+# 关于【soyo-link】🎉
 
-This template should help get you started developing with Vue 3 in Vite.
+soyo！soyorin！soyolink！ soyo链接生成器，将任意链接生成为： soyo.mom/sosoyoyosoyosoyo……
+
+**实现方式**  
+
+由前端来编码、解析、跳转，没有后端。这也导致生成的链接会很长，请尽量保持原始链接较短
+
+**编码过程**
+
+1. 将字符串转为二进制数据
+
+2. 用合适的算法压缩二进制数据（暂未实现，谁能教教我）
+
+3. 将二进制数据转为01字符串，再替换为自定义字符 “so” 与 “yo”
+
+4. 链接路径中，前8位（16个字符）代表当前编码版本，解析时会据此采用相应的编码方式。此后改进编码算法后，不会影响到之前生成的链接
+
 
 ## Recommended IDE Setup
 

@@ -6,8 +6,8 @@ export const axiosConfig = {
 export const webName = 'soyo-link'
 
 export const soyoLinkConfig = {
-  // baseUrl: 'https://soyo.mom/',
-  baseUrl: 'http://localhost:5173/',
+  baseUrl: 'https://soyo.mom/',
+  // baseUrl: 'http://localhost:5173/',
   zero: 'so',
   one: 'yo',
   linkVersion: 0,
@@ -91,6 +91,12 @@ export const aboutInfo = {
       img: 'https://www.cycg.xyz/favicon.ico',
       name: 'Sperteの次元茶馆',
       isRadiu: false
+    },
+    {
+      link: 'https://llili.li/',
+      img: 'https://static.sakiko.top/soyo/soyo-friend-llili.jpg',
+      name: '棒棒网址生成器',
+      isRadiu: true
     }
   ]
 }

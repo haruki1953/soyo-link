@@ -20,7 +20,7 @@ defineExpose({
 
 const windowSize = useWindowSize()
 const dialogWidth = computed(() => {
-  const width = 820
+  const width = 830
   const windowWidth = windowSize.width.value
   return windowWidth * 0.9 < width ? '90%' : width
 })
@@ -45,8 +45,8 @@ useDialogOptimization({
       <div class="markdown-content">
         <h2>关于【soyo-link】🎉</h2>
         <p>
-          soyo！soyorin！soyolink！
-          soyo链接生成器，将任意链接生成为：soyo.mom/sosoyoyosoyosoyo……
+          soyo！soyorin！soyolink！ soyo链接生成器，将任意链接生成为：
+          soyo.mom/sosoyoyosoyosoyo……
         </p>
         <!-- <h2>注意事项🦽</h2> -->
         <ul>
@@ -134,7 +134,7 @@ useDialogOptimization({
 
 @media (max-width: 500px) {
   .markdown-content {
-    padding: 0 5px;
+    padding: 0 2px;
   }
 }
 
