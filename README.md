@@ -1,6 +1,6 @@
 # 关于【soyo-link】🎉
 
-soyo！soyorin！soyolink！ soyo链接生成器，将任意链接生成为： soyo.mom/sosoyoyosoyosoyo……
+soyo！soyorin！soyolink！ soyo链接生成器，将任意链接生成为： soyo.link/sosoyoyosoyosoyo……
 
 **实现方式**  
 

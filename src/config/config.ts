@@ -6,7 +6,8 @@ export const axiosConfig = {
 export const webName = 'soyo-link'
 
 export const soyoLinkConfig = {
-  baseUrl: 'https://soyo.mom/',
+  // baseUrl: 'https://soyo.mom/',
+  baseUrl: 'https://soyo-link.pages.dev/',
   // baseUrl: 'http://localhost:5173/',
   zero: 'so',
   one: 'yo',
@@ -56,25 +57,25 @@ export const aboutInfo = {
   contact: [
     {
       link: 'https://twitter.com/harukiO_0',
-      img: 'https://static.sakiko.top/sakiko/haruki_korisu_ts.jpg',
+      img: logoImage,
       name: 'haruki🐻',
       isRadiu: true
     },
     {
       link: 'https://discord.gg/nZWpvz2WNW',
-      img: 'https://static.sakiko.top/sakiko/sakiko_ico_discord.png',
+      img: logoImage,
       name: 'Discord',
       isRadiu: false
     },
     {
       link: 'https://twitter.com/sakiko214',
-      img: 'https://static.sakiko.top/sakiko/sakiko_ico_x.png',
+      img: logoImage,
       name: 'X / Twitter',
       isRadiu: false
     },
     {
       link: 'https://sakiko.top/',
-      img: 'https://static.sakiko.top/sakiko/sakiko_ico_xlog.png',
+      img: logoImage,
       name: 'xLog',
       isRadiu: false
     }
@@ -82,7 +83,7 @@ export const aboutInfo = {
   friend: [
     {
       link: 'https://bangumi.sakiko.top/',
-      img: 'https://static.sakiko.top/sakiko/sakiko_ico.png',
+      img: logoImage,
       name: '小祥の小窝',
       isRadiu: false
     },
@@ -94,7 +95,7 @@ export const aboutInfo = {
     },
     {
       link: 'https://llili.li/',
-      img: 'https://static.sakiko.top/soyo/soyo-friend-llili.jpg',
+      img: logoImage,
       name: '棒棒网址生成器',
       isRadiu: true
     }

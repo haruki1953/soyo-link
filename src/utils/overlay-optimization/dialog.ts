@@ -31,7 +31,7 @@ export const useDialogOptimization = (dependencies: {
   const enableOnDialogShow = async () => {
     // 禁用滚动，同时防止抖动（在存在滚动条时）
     if (hasVerticalScrollBar()) {
-      console.log('存在滚动条')
+      // console.log('存在滚动条')
       optimizationScrollOnOverlayShow()
     }
 
@@ -45,7 +45,7 @@ export const useDialogOptimization = (dependencies: {
   const disableOnDialogClose = async () => {
     // 恢复滚动，同时防止抖动（在存在滚动条时）
     if (hasVerticalScrollBar()) {
-      console.log('存在滚动条')
+      // console.log('存在滚动条')
       optimizationScrollOnOverlayClose()
     }
     // 取消返回监听

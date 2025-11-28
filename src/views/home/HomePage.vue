@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { logoImage } from '@/config'
 import { webName } from '@/config'
+import { soyoLinkConfig } from '@/config'
 import {
   binaryStringToString,
   soyoDecodeLink,
@@ -95,7 +96,7 @@ const copyLink = async () => {
         <el-input
           v-model="generatedLink"
           :prefix-icon="Connection"
-          placeholder="链接生成 https://soyo.mom/sosoyoyosoyosoyo......"
+          :placeholder="`链接生成 ${soyoLinkConfig.baseUrl}${soyoLinkConfig.zero}${soyoLinkConfig.zero}${soyoLinkConfig.one}${soyoLinkConfig.one}${soyoLinkConfig.zero}${soyoLinkConfig.one}${soyoLinkConfig.zero}${soyoLinkConfig.one}......`"
           size="large"
           readonly
         ></el-input>
